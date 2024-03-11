@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <QTimer>
-#include <QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -31,6 +30,8 @@ private:
     Ui::MainWindow *ui;
     QTimer *timer = nullptr;
     int counter_seconds = 0;
+    std::vector<QTime> time_arr;
+    int index = 0;
 
 };
 #endif // MAINWINDOW_H
