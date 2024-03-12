@@ -6,22 +6,49 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>446</width>
+    <height>362</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>446</width>
+    <height>362</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>446</width>
+    <height>362</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="add">
+   <widget class="QPushButton" name="add_elements">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>0</y>
+      <x>10</x>
+      <y>5</y>
       <width>256</width>
-      <height>32</height>
+      <height>21</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+
+QPushButton:hover {
+    background-color: hsl(0, 0, 95%);
+}
+
+QPushButton:pressed {
+    background-color: hsl(0, 0, 85%);
+}</string>
     </property>
     <property name="text">
      <string>Add</string>
@@ -30,8 +57,8 @@
    <widget class="QLineEdit" name="task">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>30</y>
+      <x>10</x>
+      <y>35</y>
       <width>256</width>
       <height>21</height>
      </rect>
@@ -40,21 +67,42 @@
    <widget class="QListWidget" name="timer_list">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>280</x>
       <y>70</y>
-      <width>256</width>
-      <height>481</height>
+      <width>151</width>
+      <height>281</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Academy Engraved LET</family>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
    </widget>
-   <widget class="QPushButton" name="start">
+   <widget class="QPushButton" name="start_timer">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>70</y>
-      <width>100</width>
-      <height>32</height>
+      <x>280</x>
+      <y>5</y>
+      <width>151</width>
+      <height>21</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+
+QPushButton:hover {
+    background-color: hsl(0, 0, 95%);
+}
+
+QPushButton:pressed {
+    background-color: hsl(0, 0, 85%);
+}</string>
     </property>
     <property name="text">
      <string>Start</string>
@@ -76,14 +124,29 @@
      <enum>QAbstractSpinBox::NoButtons</enum>
     </property>
    </widget>
-   <widget class="QPushButton" name="stop">
+   <widget class="QPushButton" name="stop_timer">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>70</y>
-      <width>101</width>
-      <height>32</height>
+      <x>280</x>
+      <y>5</y>
+      <width>151</width>
+      <height>21</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+
+QPushButton:hover {
+    background-color: hsl(0, 0, 95%);
+}
+
+QPushButton:pressed {
+    background-color: hsl(0, 0, 85%);
+}</string>
     </property>
     <property name="text">
      <string>Stop</string>
@@ -92,33 +155,76 @@
    <widget class="QListWidget" name="todo_list">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>10</x>
       <y>70</y>
       <width>256</width>
-      <height>481</height>
+      <height>281</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Academy Engraved LET</family>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
    </widget>
-   <zorder>stop</zorder>
+   <widget class="QPushButton" name="delete_elements">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>35</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+
+QPushButton:hover {
+    background-color: hsl(0, 0, 95%);
+}
+
+QPushButton:pressed {
+    background-color: hsl(0, 0, 85%);
+}</string>
+    </property>
+    <property name="text">
+     <string>Delete</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="background">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>446</width>
+      <height>362</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/prefix/wallpaper);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>background</zorder>
+   <zorder>todo_list</zorder>
+   <zorder>stop_timer</zorder>
    <zorder>timer_list</zorder>
-   <zorder>add</zorder>
    <zorder>task</zorder>
-   <zorder>task</zorder>
-   <zorder>add</zorder>
-   <zorder>start</zorder>
+   <zorder>add_elements</zorder>
+   <zorder>start_timer</zorder>
    <zorder>timeEdit</zorder>
+   <zorder>delete_elements</zorder>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

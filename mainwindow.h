@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include <QTimer>
 
 QT_BEGIN_NAMESPACE
@@ -19,17 +20,16 @@ public:
     ~MainWindow();
 
 private slots:
-    void add_elements();
-    void startTimeEdit();
+    void AddElements();
+    void DeleteElements();
+    void StartTimer();
     void ProcessTime();
-    // void on_start_clicked();
-
-    void on_stop_clicked();
+    void StopTimer();
 
 private:
     Ui::MainWindow *ui;
+
     QTimer *timer = nullptr;
-    int counter_seconds = 0;
     std::vector<QTime> time_arr;
     int index = 0;
 

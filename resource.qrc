@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/prefix">
+        <file>wallpaper</file>
+    </qresource>
+</RCC>
