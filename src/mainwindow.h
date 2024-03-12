@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QSettings>
 #include <QTimer>
 
 QT_BEGIN_NAMESPACE
@@ -25,11 +26,15 @@ private slots:
     void StartTimer();
     void ProcessTime();
     void StopTimer();
+    void SaveSettings();
+    void LoadSettings();
+    // void Test();
 
 private:
     Ui::MainWindow *ui;
 
-    QTimer *timer = nullptr;
+    QSettings settings;
+    QTimer *timer;
     std::vector<QTime> time_arr;
     int index = 0;
 

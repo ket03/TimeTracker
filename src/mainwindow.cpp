@@ -1,12 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-// save data
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    LoadSettings();
     ui->stop_timer->hide();
 
     connect(ui->add_elements, SIGNAL(clicked()), this, SLOT(AddElements()));
@@ -14,11 +15,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->start_timer, SIGNAL(clicked()), this, SLOT(StartTimer()));
     connect(ui->stop_timer, SIGNAL(clicked()), this, SLOT(StopTimer()));
     connect(ui->delete_elements, SIGNAL(clicked()), this, SLOT(DeleteElements()));
-
 }
 
 MainWindow::~MainWindow()
 {
+    SaveSettings();
+    // Test();
     delete ui;
 }
 
@@ -77,3 +79,29 @@ void MainWindow::StopTimer()
     ui->start_timer->show();
 }
 
+// Подсчет столбцов идет с 0
+// void MainWindow::Test() {
+//     qDebug() << ui->todo_list->count();
+//     qDebug() << ui->todo_list->item(0)->text();
+// }
+
+void MainWindow::SaveSettings() {
+    int count = ui->todo_list->count();
+    for (int i = 0; i < count; i++) {
+        QString todo_list = "todo_list" + QString::number(i);
+        QString timer_list = "timer_list" + QString::number(i);
+        settings.setValue(todo_list, ui->todo_list->item(i)->text());
+        settings.setValue(timer_list, ui->timer_list->item(i)->text());
+    }
+    settings.setValue("count", count);
+}
+
+void MainWindow::LoadSettings() {
+    int count = settings.value("count", 0).toInt();
+    for (int i = 0; i < count; i++) {
+        QString todo_list = "todo_list" + QString::number(i);
+        QString timer_list = "timer_list" + QString::number(i);
+        ui->todo_list->addItem(settings.value(todo_list).toString());
+        ui->timer_list->addItem(settings.value(timer_list).toString());
+    }
+}
