@@ -20,7 +20,6 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     SaveSettings();
-    // Test();
     delete ui;
 }
 
@@ -78,12 +77,6 @@ void MainWindow::StopTimer()
     ui->stop_timer->hide();
     ui->start_timer->show();
 }
-
-// Подсчет столбцов идет с 0
-// void MainWindow::Test() {
-//     qDebug() << ui->todo_list->count();
-//     qDebug() << ui->todo_list->item(0)->text();
-// }
 
 void MainWindow::SaveSettings() {
     int count = ui->todo_list->count();

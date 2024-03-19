@@ -28,7 +28,6 @@ private slots:
     void StopTimer();
     void SaveSettings();
     void LoadSettings();
-    // void Test();
 
 private:
     Ui::MainWindow *ui;
